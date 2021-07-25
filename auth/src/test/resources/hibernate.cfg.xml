@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<hibernate-configuration>
+    <session-factory>
+        <property name = "hibernate.connection.url">jdbc:hsqldb:mem:job4j_cars;sql.enforce_size=false;sql.syntax_pgs=true</property>
+        <property name = "hibernate.connection.driver_class">org.hsqldb.jdbcDriver</property>
+        <property name = "hibernate.connection.username">test</property>
+        <property name = "hibernate.connection.password"></property>
+        <property name = "hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
+<!--        org.hibernate.dialect.HSQLDialect-->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="use_sql_comments">true</property>
+        <property name="hibernate.connection.charSet">UTF-8</property>
+        <property name="hibernate.connection.characterEncoding">UTF-8</property>
+
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        <!-- List of XML mapping files -->
+
+        <mapping class="cars.model.Advert"/>
+        <mapping class="cars.model.Car"/>
+        <mapping class="cars.model.CarPhoto"/>
+        <mapping class="cars.model.Seller"/>
+        <mapping class="cars.model.CarModel"/>
+        <mapping class="cars.model.Engine"/>
+
+    </session-factory>
+</hibernate-configuration>
