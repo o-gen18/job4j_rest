@@ -7,7 +7,7 @@ sudo: false
 services:
   - postgresql
 before_install:
-  - psql -c 'create database ---;' -U postgres
+  - psql -c 'create database fullstack_auth;' -U postgres
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
