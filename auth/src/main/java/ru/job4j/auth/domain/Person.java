@@ -15,6 +15,13 @@ public class Person {
 
     private String password;
 
+    public static Person of(String login, String password) {
+        Person person = new Person();
+        person.login = login;
+        person.password = password;
+        return person;
+    }
+
     public int getId() {
         return id;
     }
@@ -48,11 +55,21 @@ public class Person {
             return false;
         }
         Person person = (Person) o;
-        return id == person.id;
+        return id == person.id
+               && Objects.equals(login, person.login)
+               && Objects.equals(password, person.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(id, login, password);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{id=" + id
+                + ", login='" + login + '\''
+                + ", password='" + password + '\''
+                + '}';
     }
 }

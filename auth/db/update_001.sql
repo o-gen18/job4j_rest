@@ -1,9 +1,15 @@
+CREATE TABLE employee (
+    id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR(2000) NOT NULL,
+    surname VARCHAR(2000) NOT NULL,
+    tax_info_number VARCHAR(2000),
+    hired TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW()
+);
+
 CREATE TABLE person (
     id SERIAL PRIMARY KEY NOT NULL,
     login VARCHAR(2000),
-    password VARCHAR(2000)
+    password VARCHAR(2000),
+    employee_id INT NOT NULL,
+    CONSTRAINT EMPLOYEE_ID_FK FOREIGN KEY (employee_id) REFERENCES employee(id)
 );
-
-INSERT INTO person (login, password) values ('Petr', '123');
-INSERT INTO person (login, password) values ('Ivan', '123');
-INSERT INTO person (login, password) values ('Ban', '123');
